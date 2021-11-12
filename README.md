@@ -1,0 +1,2 @@
+# AutoHotKey
+Practice AutoHotKey script
