@@ -43,7 +43,7 @@ Loop 5
 }
 return
 
-^!2:: ; Ctrl + Alt + 2
+:*:*t1:: ; *t1
 MsgBox,
 (
 Line 1
