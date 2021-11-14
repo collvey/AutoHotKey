@@ -1,3 +1,5 @@
+SetTitleMatchMode 2 ; A window's title can contain WinTitle anywhere inside it to be a match.
+
 ; # Win (Windows logo key)
 ; ! Alt
 ; ^ Ctrl
@@ -15,9 +17,11 @@ return
 Numpad0 & Numpad1::
 MsgBox, You pressed Numpad1 while holding down Numpad0.
 return
-SetTitleMatchMode, 2 ; A window's title can contain WinTitle anywhere inside it to be a match.
 ; Context-sensitive hotkeys and hotstrings
 #IfWinNotActive Visual Studio Code
 #Space::
 MsgBox, You pressed WIN+SPACE not in VS Code.
 return
+; Context-sensitive hotkeys and hotstrings
+#IfWinNotActive Visual Studio Code
+:*:ftw::Free the whales
