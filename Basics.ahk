@@ -75,5 +75,10 @@ if (OutputVar2 = "yes")
     MsgBox, Thank you for answering %OutputVar2%`, %OutputVar%! We will become great friends.
 else
     MsgBox, %OutputVar%`, That makes me sad.
-Return
+
+MsgBox, 4,, Would you like to continue?
+IfMsgBox, No
+    return  ; If No, stop the code from going further.
+MsgBox, You pressed YES.  ; Otherwise, the user picked yes.
+return
 
