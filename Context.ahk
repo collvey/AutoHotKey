@@ -18,3 +18,6 @@ SetTitleMatchMode 2 ; A window's title can contain WinTitle anywhere inside it t
 #Space::
 MsgBox, You pressed WIN+SPACE not in VS Code.
 return
+#1::
+MsgBox, You pressed WIN+1 not in VS Code.
+return
