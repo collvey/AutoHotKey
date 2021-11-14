@@ -16,4 +16,11 @@ Numpad0 & Numpad1::
 MsgBox, You pressed Numpad1 while holding down Numpad0.
 return
 ; Replace ftw immediately with Free the whales
-:*:ftw::Free the whales 
+#IfWinNotActive Basics.ahk - AutoHotKey - Visual Studio Code
+:*:ftw::Free the whales
+return
+; Context-sensitive hotkeys and hotstrings
+#IfWinNotActive Basics.ahk - AutoHotKey - Visual Studio Code
+#Space::
+MsgBox, You pressed WIN+SPACE not in VS Code.
+return
