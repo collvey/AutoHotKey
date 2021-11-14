@@ -18,10 +18,11 @@ Numpad0 & Numpad1::
 MsgBox, You pressed Numpad1 while holding down Numpad0.
 return
 ; Context-sensitive hotkeys and hotstrings
+; #IfWinActive
+; #IfWinExist
 #IfWinNotActive Visual Studio Code
 #Space::
 MsgBox, You pressed WIN+SPACE not in VS Code.
 return
-; Context-sensitive hotkeys and hotstrings
 #IfWinNotActive Visual Studio Code
 :*:ftw::Free the whales
