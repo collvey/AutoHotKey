@@ -63,3 +63,17 @@ return
 :*:*t3:: ; *t3
 Run, %A_MyDocuments%
 return
+
+; Getting User Input
+:*:*t4:: ; *t4
+InputBox, OutputVar, Question 1, What is your first name?
+if (OutputVar = "Bill")
+    MsgBox, That's an awesome name`, %OutputVar%.
+
+InputBox, OutputVar2, Question 2, Do you like AutoHotkey?
+if (OutputVar2 = "yes")
+    MsgBox, Thank you for answering %OutputVar2%`, %OutputVar%! We will become great friends.
+else
+    MsgBox, %OutputVar%`, That makes me sad.
+Return
+
