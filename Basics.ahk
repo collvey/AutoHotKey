@@ -15,12 +15,9 @@ return
 Numpad0 & Numpad1::
 MsgBox, You pressed Numpad1 while holding down Numpad0.
 return
-; Replace ftw immediately with Free the whales
-#IfWinNotActive Basics.ahk - AutoHotKey - Visual Studio Code
-:*:ftw::Free the whales
-return
+SetTitleMatchMode, 2 ; A window's title can contain WinTitle anywhere inside it to be a match.
 ; Context-sensitive hotkeys and hotstrings
-#IfWinNotActive Basics.ahk - AutoHotKey - Visual Studio Code
+#IfWinNotActive Visual Studio Code
 #Space::
 MsgBox, You pressed WIN+SPACE not in VS Code.
 return
