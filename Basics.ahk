@@ -27,3 +27,26 @@ q & e::
 MsgBox, You pressed q+e not in VS Code.
 return
 :*:ftw::Free the whales ;
+#IfWinActive
+
+; Sending KeyStrokes
+; !a sends Alt + A
+; ^a sends Ctrl + A
+; +abC sends "AbC"
+; !+a sends Alt + Shift + A
+; ^!a sends Ctrl + Alt + A
+; ^{Home} sends Ctrl + Home
+; #e sends Win + e
+; Special keys in https://www.autohotkey.com/docs/commands/Send.htm
+
+; Repeating or Holding Down a Key
+; Send {DEL 4}  ; Presses the Delete key 4 times.
+; Send {S 30}   ; Sends 30 uppercase S characters.
+; Send +{TAB 4}  ; Presses Shift-Tab 4 times.
+
+#`:: ; Press Win + ` to send ` 5 times
+Loop 5
+{
+    Send ``
+}
+return
