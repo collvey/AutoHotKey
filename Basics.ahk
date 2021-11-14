@@ -82,3 +82,7 @@ IfMsgBox, No
 MsgBox, You pressed YES.  ; Otherwise, the user picked yes.
 return
 
+; Finding AHK Version
+:*:*tv:: ; *tv
+MsgBox, %A_AhkVersion%
+return
