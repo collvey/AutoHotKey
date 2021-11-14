@@ -15,8 +15,8 @@ return
 ; #IfWinActive
 ; #IfWinExist
 #IfWinNotActive Visual Studio Code
-q & e::
-MsgBox, You pressed q+e not in VS Code.
+:*:*t0::
+MsgBox, You pressed Win + Space not in VS Code.
 return
 :*:ftw::Free the whales ;
 #IfWinActive
