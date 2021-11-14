@@ -53,3 +53,13 @@ Line 4
 Line 5
 )
 return
+
+; Running Programs & Websites
+:*:*t2:: ; *t2
+Run, https://www.google.com
+return
+
+; Open "My Documents" folder
+:*:*t3:: ; *t3
+Run, %A_MyDocuments%
+return
