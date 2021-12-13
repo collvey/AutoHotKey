@@ -1,3 +1,4 @@
+#Include RunCmd.ahk
 ; # Win (Windows logo key) 
 ; ! Alt 
 ; ^ Ctrl 
@@ -24,4 +25,12 @@ clipboard =
 Send, ^c
 ClipWait, 2
 Run https://www.spanishdict.com/translate/%clipboard%
+return
+
+!e:: ; Copy and pop up in Tooltip
+clipboard :=
+Send, ^c
+ClipWait, 2
+cmd := "python .\ShowTooltipExample.py " clipboard
+RunCmd(cmd)
 return
