@@ -31,9 +31,9 @@ return
 clipboard :=
 Send, ^c
 ClipWait, 2
-quote_clip := "" clipboard ""
-MsgBox, %quote_clip%
-cmd := "python .\ShowTooltipExample.py " quote_clip
+quote := chr(34) clipboard chr(34)
+; MsgBox, %quote%
+cmd := "python .\ShowTooltipExample.py " quote
 RunCmd(cmd)
 return
 
