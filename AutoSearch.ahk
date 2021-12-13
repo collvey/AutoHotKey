@@ -27,10 +27,20 @@ ClipWait, 2
 Run https://www.spanishdict.com/translate/%clipboard%
 return
 
-!e:: ; Copy and pop up in Tooltip
+!r:: ; Copy and pop up in Tooltip
 clipboard :=
 Send, ^c
 ClipWait, 2
-cmd := "python .\ShowTooltipExample.py " clipboard
+quote_clip := "" clipboard ""
+MsgBox, %quote_clip%
+cmd := "python .\ShowTooltipExample.py " quote_clip
+RunCmd(cmd)
+return
+
+!e:: ; Copy and send in email
+clipboard :=
+Send, ^c
+ClipWait, 2
+cmd := "python .\SendEmail.py " clipboard
 RunCmd(cmd)
 return
