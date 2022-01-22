@@ -45,3 +45,10 @@ ClipWait, 2
 cmd := "python .\SendEmail.py " clipboard
 RunCmd(cmd)
 return
+
+!u:: ; Copy and Search on Bing Translator
+clipboard =
+Send, ^c
+ClipWait, 2
+Run https://www.bing.com/translator?from=en&to=cn&text=%clipboard%
+return
