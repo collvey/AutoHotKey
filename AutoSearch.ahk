@@ -18,6 +18,8 @@ clipboard =
 Send, ^c
 ClipWait, 2
 Run https://translate.google.com/?sl=es&tl=en&text=%clipboard%&op=translate
+cmd := "python .\ClipboardUtils.py appendFile"
+RunCmd(cmd)
 return
 
 !s:: ; Copy and Search on Spanish Dictionary
