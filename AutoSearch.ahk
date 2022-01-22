@@ -25,6 +25,7 @@ clipboard =
 Send, ^c
 ClipWait, 2
 Run https://www.spanishdict.com/translate/%clipboard%
+FileAppend, %clipboard%, C:\clip.txt
 return
 
 !r:: ; Copy and pop up in Tooltip
