@@ -25,7 +25,8 @@ clipboard =
 Send, ^c
 ClipWait, 2
 Run https://www.spanishdict.com/translate/%clipboard%
-FileAppend, %clipboard%, C:\clip.txt
+cmd := "python .\ClipboardUtils.py appendFile"
+RunCmd(cmd)
 return
 
 !r:: ; Copy and pop up in Tooltip
