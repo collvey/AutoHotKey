@@ -12,7 +12,7 @@ def requestTranslationFromWord(word):
     response = requests.get(url, allow_redirects=True)
     soup = BeautifulSoup(response.content, 'html.parser')
     site_json = json.loads(soup.text)
-    return '/'.join([entry['translation'] for entry in site_json['data']['translations']])
+    return '/'.join([entry['translation'] for entry in site_json['data']['translations'] if entry['translation']])
 
 def appendTranslationToFile(text, filepath):
     curr_datetime = str(datetime.datetime.now())
