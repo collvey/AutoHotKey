@@ -27,7 +27,7 @@ clipboard =
 Send, ^c
 ClipWait, 2
 Run https://www.spanishdict.com/translate/%clipboard%
-cmd := "python .\ClipboardUtils.py appendFile"
+cmd := "python .\ClipboardUtils.py appendTranslationToFile"
 RunCmd(cmd)
 return
 
