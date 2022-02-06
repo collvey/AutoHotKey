@@ -1,5 +1,6 @@
 import datetime
 import json
+import os
 import requests
 import sys
 import time
@@ -17,11 +18,15 @@ def requestTranslationFromWord(word):
 def appendTranslationToFile(text, filepath):
     curr_datetime = str(datetime.datetime.now())
     translations = requestTranslationFromWord(text)
+    if not os.path.exists(os.path.dirname(filepath)):
+        os.makedirs(os.path.dirname(filepath))
     with open(filepath, "a") as f:
         f.write(f"{text}, {translations}, {curr_datetime}\n")
 
 def appendFile(text, filepath):
     curr_datetime = str(datetime.datetime.now())
+    if not os.path.exists(os.path.dirname(filepath)):
+        os.makedirs(os.path.dirname(filepath))
     with open(filepath, "a") as f:
         f.write(f"{text}, {curr_datetime}\n")
 
