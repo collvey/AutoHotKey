@@ -21,7 +21,8 @@ def appendTranslationToFile(text, filepath):
     if not os.path.exists(os.path.dirname(filepath)):
         os.makedirs(os.path.dirname(filepath))
     with open(filepath, "a") as f:
-        f.write(f"{text}, {translations}, {curr_datetime}\n")
+        # f.write(f"{text}, {translations}, {curr_datetime}\n")
+        f.write(f"{text}, {translations}\n")
 
 def appendFile(text, filepath):
     curr_datetime = str(datetime.datetime.now())
