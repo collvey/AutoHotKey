@@ -14,8 +14,6 @@ from email.utils import COMMASPACE, formatdate
 from email import encoders
 
 def send_email(user, pwd, recipient, subject, body, dir=None):
-    
-
     FROM = user
     TO = recipient
     SUBJECT = subject
