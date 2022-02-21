@@ -55,3 +55,7 @@ Send, ^c
 ClipWait, 2
 Run https://www.bing.com/translator?from=en&to=cn&text=%clipboard%
 return
+
+!d:: ; Take Screenshot
+Send, #{PrintScreen}
+return
