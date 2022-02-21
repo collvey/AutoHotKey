@@ -57,8 +57,14 @@ Run https://www.bing.com/translator?from=en&to=cn&text=%clipboard%
 return
 
 !d:: ; Take Screenshot
+clipboard :=
+Send, ^c
+ClipWait, 2
 Send, #{PrintScreen}
 Sleep, 1000
+cmd := "python .\SendEmail.py " clipboard
+RunCmd(cmd)
+Sleep, 5000
 cmd := "python .\ProcessScreen.py"
 RunCmd(cmd)
 return
