@@ -58,7 +58,7 @@ return
 
 !d:: ; Take Screenshot
 Send, #{PrintScreen}
-ClipWait, 2
+Sleep, 1000
 cmd := "python .\ProcessScreen.py"
 RunCmd(cmd)
 return
