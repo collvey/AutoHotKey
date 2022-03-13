@@ -52,8 +52,7 @@ def send_email(user, pwd, recipient, subject, body, dir=None):
         print("failed to send mail")
 
 if __name__ == "__main__":
-    # body = Tk().clipboard_get()
-    body = "Test Image"
+    body = Tk().clipboard_get()
     now = datetime.datetime.now()
     cur = now.strftime("%Y-%m-%d %H:%M:%S")
     send_email("jd.book.006@gmail.com", 
