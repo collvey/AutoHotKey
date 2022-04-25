@@ -68,3 +68,24 @@ Sleep, 5000
 cmd := "python .\ProcessScreen.py"
 RunCmd(cmd)
 return
+
+::/p1:: ; Load Picture 1 into clipboard
+cmd := "python .\Imageutils.py --picture 1"
+RunCmd(cmd)
+Sleep, 200
+Send, ^v
+return
+
+::/p2:: ; Load Picture 2 into clipboard
+cmd := "python .\Imageutils.py --picture 2"
+RunCmd(cmd)
+Sleep, 200
+Send, ^v
+return
+
+::/p3:: ; Load Picture 3 into clipboard
+cmd := "python .\Imageutils.py --picture 3"
+RunCmd(cmd)
+Sleep, 200
+Send, ^v
+return
