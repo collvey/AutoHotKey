@@ -69,6 +69,58 @@ cmd := "python .\ProcessScreen.py"
 RunCmd(cmd)
 return
 
+::\p1:: ; Take Screenshot for Picture 1
+Send, #{PrintScreen}
+Sleep, 1000
+Folder = C:\Users\collv\Pictures\Screenshots ; change this to the actual folder
+Loop, %Folder%\*
+{
+     FileGetTime, Time, %A_LoopFileFullPath%,
+     If (Time > Time_Orig)
+     {
+          Time_Orig := Time
+          File := A_LoopFileName
+     }
+}
+FileCopy, C:\Users\collv\Pictures\Screenshots\%File%, C:\Users\collv\Pictures\PictureCache\Picture1.png, 1
+; MsgBox, %cmd%
+return
+
+::\p2:: ; Take Screenshot for Picture 2
+Send, #{PrintScreen}
+Sleep, 1000
+Folder = C:\Users\collv\Pictures\Screenshots ; change this to the actual folder
+Loop, %Folder%\*
+{
+     FileGetTime, Time, %A_LoopFileFullPath%,
+     If (Time > Time_Orig)
+     {
+          Time_Orig := Time
+          File := A_LoopFileName
+     }
+}
+FileCopy, C:\Users\collv\Pictures\Screenshots\%File%, C:\Users\collv\Pictures\PictureCache\Picture2.png, 1
+; MsgBox, %cmd%
+return
+
+::\p3:: ; Take Screenshot for Picture 3
+Send, #{PrintScreen}
+Sleep, 1000
+Folder = C:\Users\collv\Pictures\Screenshots ; change this to the actual folder
+Loop, %Folder%\*
+{
+     FileGetTime, Time, %A_LoopFileFullPath%,
+     If (Time > Time_Orig)
+     {
+          Time_Orig := Time
+          File := A_LoopFileName
+     }
+}
+FileCopy, C:\Users\collv\Pictures\Screenshots\%File%, C:\Users\collv\Pictures\PictureCache\Picture3.png, 1
+; MsgBox, %cmd%
+return
+
+
 ::/p1:: ; Load Picture 1 into clipboard
 cmd := "python .\Imageutils.py --picture 1"
 RunCmd(cmd)
