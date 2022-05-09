@@ -73,7 +73,7 @@ return
 Send, #{PrintScreen}
 Sleep, 1000
 Folder = C:\Users\collv\Pictures\Screenshots ; change this to the actual folder
-Loop, %Folder%\*
+Loop, Files, %Folder%\*
 {
      FileGetTime, Time, %A_LoopFileFullPath%,
      If (Time > Time_Orig)
@@ -90,7 +90,7 @@ return
 Send, #{PrintScreen}
 Sleep, 1000
 Folder = C:\Users\collv\Pictures\Screenshots ; change this to the actual folder
-Loop, %Folder%\*
+Loop, Files, %Folder%\*
 {
      FileGetTime, Time, %A_LoopFileFullPath%,
      If (Time > Time_Orig)
@@ -107,7 +107,7 @@ return
 Send, #{PrintScreen}
 Sleep, 1000
 Folder = C:\Users\collv\Pictures\Screenshots ; change this to the actual folder
-Loop, %Folder%\*
+Loop, Files, %Folder%\*
 {
      FileGetTime, Time, %A_LoopFileFullPath%,
      If (Time > Time_Orig)
