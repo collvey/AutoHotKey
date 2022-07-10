@@ -56,18 +56,18 @@ ClipWait, 2
 Run https://www.bing.com/translator?from=en&to=cn&text=%clipboard%
 return
 
-!d:: ; Take Screenshot
-clipboard :=
-Send, ^c
-ClipWait, 2
-Send, #{PrintScreen}
-Sleep, 1000
-cmd := "python .\SendEmail.py " clipboard
-RunCmd(cmd)
-Sleep, 5000
-cmd := "python .\ProcessScreen.py"
-RunCmd(cmd)
-return
+; !d:: ; Take Screenshot
+; clipboard :=
+; Send, ^c
+; ClipWait, 2
+; Send, #{PrintScreen}
+; Sleep, 1000
+; cmd := "python .\SendEmail.py " clipboard
+; RunCmd(cmd)
+; Sleep, 5000
+; cmd := "python .\ProcessScreen.py"
+; RunCmd(cmd)
+; return
 
 ::\t1:: ; Take Screenshot for Picture 1
 Loop, read, C:\Users\collv\Pictures\PictureCache\Test1.txt
@@ -147,4 +147,13 @@ cmd := "python .\Imageutils.py --picture 3"
 RunCmd(cmd)
 Sleep, 200
 Send, ^v
+return
+
+!d:: ; Download video
+clipboard =
+Send, ^c
+ClipWait, 2
+cmd = yt-dlp %clipboard% -P C:\Users\collv\Documents\DownloadedVideos\
+RunCmd(cmd)
+; MsgBox, %cmd%
 return
