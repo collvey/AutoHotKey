@@ -149,11 +149,13 @@ Sleep, 200
 Send, ^v
 return
 
+; Install yt-dlp with "pip install yt-dlp"
+; (Optional) Install ffmpeg from https://ffmpeg.org/download.html#build-windows
+; Set Windows environment PATH variable to yt-dlp and ffmpeg binaries
 !d:: ; Download video
 clipboard =
 Send, ^c
 ClipWait, 2
 cmd = yt-dlp %clipboard% -P C:\Users\collv\Documents\DownloadedVideos\
 RunCmd(cmd)
-; MsgBox, %cmd%
 return
