@@ -69,6 +69,13 @@ cmd := "python .\ProcessScreen.py"
 RunCmd(cmd)
 return
 
+::\t1:: ; Take Screenshot for Picture 1
+Loop, read, C:\Users\collv\Pictures\PictureCache\Test1.txt
+{
+    MsgBox, "Test1" %A_LoopReadLine%
+}
+Return
+
 ::\p1:: ; Take Screenshot for Picture 1
 Send, #{PrintScreen}
 Sleep, 1000
