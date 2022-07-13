@@ -187,8 +187,13 @@ Return RunCmd("nslookup myip.opendns.com. resolver1.opendns.com",,,A_ThisFunc)
 }
 return
 
-#e:: ; Usages in https://www.autohotkey.com/boards/viewtopic.php?t=74647
+#a:: ; Usages in https://www.autohotkey.com/boards/viewtopic.php?t=74647
 ; GUI Example: Realtime per line streaming to edit control.
+clipboard =
+Send, ^c
+ClipWait, 2
+dl_cmd = yt-dlp %clipboard% -P C:\Users\collv\Documents\DownloadedVideos\
+
 #NoEnv
 #Warn
 #SingleInstance, Force
@@ -203,10 +208,10 @@ Gui, Add, Text,, Output
 Gui, Add, Edit, y+3 -Wrap +HScroll R20 HwndhEdit1, % Format("{:81}", "")
 ControlGetPos,,,W,,,ahk_id %hEdit1%
 Gui, Add, Text,, Command Line
-Gui, Add, Edit, y+3 -Wrap HwndhEdit2 w%W%, Dir
+Gui, Add, Edit, y+3 -Wrap HwndhEdit2 w%W%, %dl_cmd%
 Gui, Add, Button, x+0 w0 h0 Default gRunCMD, <F2> RunCMD
-Gui, Add, StatusBar
-SB_SetParts(200,200), SB_SetText("`t<Esc> Cancel/Clear", 1),  SB_SetText("`t<Enter> RunCMD", 2)
+; Gui, Add, StatusBar
+; SB_SetParts(200,200), SB_SetText("`t<Esc> Cancel/Clear", 1),  SB_SetText("`t<Enter> RunCMD", 2)
 GuiControl,, Edit1
 Gui, Show,, RunCMD() - Realtime per line streaming demo 
 
