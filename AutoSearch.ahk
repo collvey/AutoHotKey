@@ -191,7 +191,7 @@ return
 ; GUI Example: Realtime per line streaming to edit control.
 clipboard =
 Send, ^c
-ClipWait, 2
+ClipWait, 2    
 dl_cmd = yt-dlp %clipboard% -P C:\Users\collv\Documents\DownloadedVideos\
 
 #NoEnv
@@ -202,13 +202,14 @@ SetBatchLines -1
 Menu, Tray, Icon, %A_Comspec%
 Process, Priority,,High
 
+Gui, Destroy
 Gui, Margin, 15, 15
 Gui, Font, s9, Consolas
 Gui, Add, Text,, Output
 Gui, Add, Edit, y+3 -Wrap +HScroll R20 HwndhEdit1, % Format("{:81}", "")
 ControlGetPos,,,W,,,ahk_id %hEdit1%
 Gui, Add, Text,, Command Line
-Gui, Add, Edit, y+3 -Wrap HwndhEdit2 w%W%, %dl_cmd%
+Gui, Add, Edit, y+3 -WantReturn HwndhEdit2 w%W%, %dl_cmd%
 Gui, Add, Button, x+0 w0 h0 Default gRunCMD, <F2> RunCMD
 ; Gui, Add, StatusBar
 ; SB_SetParts(200,200), SB_SetText("`t<Esc> Cancel/Clear", 1),  SB_SetText("`t<Enter> RunCMD", 2)
@@ -260,3 +261,14 @@ Local        ; Original by TheGood on 09-Apr-2010 @ autohotkey.com/board/topic/5
        DllCall("SendMessage", "Ptr",hEdit, "UInt",0xB1, "Ptr",L , "Ptr",L)   ; EM_SETSEL
        DllCall("SendMessage", "Ptr",hEdit, "UInt",0xC2, "Ptr",0 , "Str",Txt) ; EM_REPLACESEL
 }
+
+#s:: ; Continuously updates and displays the name and position of the control currently under the mouse cursor.
+; Example from https://www.autohotkey.com/docs/commands/ControlGetPos.htm#ExBasic
+Loop
+{
+    Sleep, 100
+    MouseGetPos, , , WhichWindow, WhichControl
+    ControlGetPos, x, y, w, h, %WhichControl%, ahk_id %WhichWindow%
+    ToolTip, %WhichControl%`nX%X%`tY%Y%`nW%W%`t%H%
+}
+Return
