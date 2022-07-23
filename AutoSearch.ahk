@@ -13,6 +13,13 @@ ClipWait, 2
 Run https://www.google.com/search?q=%clipboard%
 return
 
+!c:: ; Copy and Search on Google for French verb conjugation
+clipboard =
+Send, ^c
+ClipWait, 2
+Run https://www.google.com/search?q=%clipboard%+conjugaison
+return
+
 !t:: ; Copy and Search on Google Translate
 clipboard =
 Send, ^c
