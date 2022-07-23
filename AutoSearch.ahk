@@ -174,7 +174,7 @@ cmd = yt-dlp %clipboard% -P C:\Users\collv\Documents\DownloadedVideos\
 RunCmd(cmd)
 return
 
-+e:: ; Convert Spanish text to speech
+^+e:: ; Convert Spanish text to speech
 clipboard =
 Send, ^c
 ClipWait, 2
