@@ -174,6 +174,14 @@ cmd = yt-dlp %clipboard% -P C:\Users\collv\Documents\DownloadedVideos\
 RunCmd(cmd)
 return
 
++e:: ; Convert Spanish text to speech
+clipboard =
+Send, ^c
+ClipWait, 2
+cmd = tts --text "%clipboard%" --model_name "tts_models/es/mai/tacotron2-DDC" --out_path C:\Users\collv\Documents\DownloadedVideos\%A_Now%.wav
+RunCmd(cmd)
+return
+
 #q:: ; Usages in https://www.autohotkey.com/boards/viewtopic.php?t=74647
 ; The following function code fetches the IP address of autohotkey.com. 
 ; It ignores the first line, pre-process' the second line and immediately cancels RunCMD().
