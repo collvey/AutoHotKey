@@ -178,9 +178,37 @@ return
 clipboard =
 Send, ^c
 ClipWait, 2
-cmd = tts --text "%clipboard%" --model_name "tts_models/es/mai/tacotron2-DDC" --out_path C:\Users\collv\Documents\DownloadedVideos\%A_Now%.wav
-RunCmd(cmd)
-return
+tts_cmd = tts --text "%clipboard%" --model_name "tts_models/es/mai/tacotron2-DDC" --out_path C:\Users\collv\Documents\DownloadedVideos\%A_Now%.wav
+
+#NoEnv
+#Warn
+#SingleInstance, Force
+SetWorkingDir %A_ScriptDir%
+SetBatchLines -1
+Menu, Tray, Icon, %A_Comspec%
+Process, Priority,,High
+
+Gui, Destroy
+Gui, Margin, 15, 15
+Gui, Font, s9, Consolas
+Gui, Add, Text,, Output
+Gui, Add, Edit, y+3 -Wrap +HScroll R20 HwndhEdit1, % Format("{:81}", "")
+ControlGetPos,,,W,,,ahk_id %hEdit1%
+Gui, Add, Text,, Command Line
+Gui, Add, Edit, y+3 -WantReturn -Wrap HwndhEdit2 w%W%, %tts_cmd%
+Gui, Add, Button, x+0 w0 h0 Default gRunCMD, <F2> RunCMD
+GuiControl,, Edit1
+Gui, Show,, RunCMD() - Realtime per line streaming demo 
+
+SB_SetText("", 3)
+GuiControlGet, Cmd,, %hEdit2%
+GuiControl, Disable, Button1
+ExitCode := RunCMD(A_Comspec . " /c " . Cmd)
+SB_SetText("`tExitCode : " ErrorLevel, 3)
+GuiControl, Enable, Button1
+Edit_Append(hEdit2,"")
+GuiControl, Focus,Edit2
+Return
 
 #q:: ; Usages in https://www.autohotkey.com/boards/viewtopic.php?t=74647
 ; The following function code fetches the IP address of autohotkey.com. 
@@ -233,24 +261,18 @@ ControlGetPos,,,W,,,ahk_id %hEdit1%
 Gui, Add, Text,, Command Line
 Gui, Add, Edit, y+3 -WantReturn HwndhEdit2 w%W%, %dl_cmd%
 Gui, Add, Button, x+0 w0 h0 Default gRunCMD, <F2> RunCMD
-; Gui, Add, StatusBar
-; SB_SetParts(200,200), SB_SetText("`t<Esc> Cancel/Clear", 1),  SB_SetText("`t<Enter> RunCMD", 2)
 GuiControl,, Edit1
 Gui, Show,, RunCMD() - Realtime per line streaming demo 
 
-
-RunCMD:
-  SB_SetText("", 3)
-  GuiControlGet, Cmd,, %hEdit2%
-  GuiControl, Disable, Button1
-  ExitCode := RunCMD(A_Comspec . " /c " . Cmd)
-  SB_SetText("`tExitCode : " ErrorLevel, 3)
-  GuiControl, Enable, Button1
-  Edit_Append(hEdit2,"")
-  GuiControl, Focus,Edit2
-Return                                                            ; end of auto-execute section 
-
-
+SB_SetText("", 3)
+GuiControlGet, Cmd,, %hEdit2%
+GuiControl, Disable, Button1
+ExitCode := RunCMD(A_Comspec . " /c " . Cmd)
+SB_SetText("`tExitCode : " ErrorLevel, 3)
+GuiControl, Enable, Button1
+Edit_Append(hEdit2,"")
+GuiControl, Focus,Edit2
+Return
 
 #IfWinActive RunCMD() ahk_class AutoHotkeyGUI
   Esc::
@@ -266,8 +288,6 @@ Return                                                            ; end of auto-
     GuiControl,,Edit2
   Return
 #IfWinActive
-
-
 
 RunCmd_Output(Line, LineNum) {
 Global 
