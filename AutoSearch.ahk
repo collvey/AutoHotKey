@@ -31,6 +31,13 @@ cmd := "python .\ClipboardUtils.py appendTranslationToFile"
 RunCmd(cmd)
 return
 
+!f:: ; Copy and Search on French dictionary
+clipboard =
+Send, ^c
+ClipWait, 2
+Run https://dictionary.cambridge.org/es-LA/dictionary/french-english/%clipboard%
+return
+
 !r:: ; Copy and pop up in Tooltip
 clipboard :=
 Send, ^c
