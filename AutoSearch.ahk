@@ -242,7 +242,7 @@ return
 clipboard =
 Send, ^c
 ClipWait, 2    
-dl_cmd = yt-dlp %clipboard% -P C:\Users\collv\Documents\DownloadedVideos\
+dl_cmd = yt-dlp %clipboard% -P C:\Users\collv\Documents\DownloadedVideos\ --write-subs --write-auto-subs --sub-langs "cn*,es*,en"
 
 #NoEnv
 #Warn
