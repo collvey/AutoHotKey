@@ -13,6 +13,13 @@ ClipWait, 2
 Run https://www.google.com/search?q=%clipboard%
 return
 
+!m:: ; Copy and Search meaning on Google
+clipboard =
+Send, ^c
+ClipWait, 2
+Run https://www.google.com/search?q=%clipboard%+meaning
+return
+
 !c:: ; Copy and Search on Google for French verb conjugation
 clipboard =
 Send, ^c
@@ -45,15 +52,22 @@ ClipWait, 2
 Run https://dictionary.cambridge.org/es-LA/dictionary/french-english/%clipboard%
 return
 
-!r:: ; Copy and pop up in Tooltip
-clipboard :=
+!r:: ; Copy and Search on frdic.com
+clipboard =
 Send, ^c
 ClipWait, 2
-quote := chr(34) clipboard chr(34)
-; MsgBox, %quote%
-cmd := "python .\ShowTooltipExample.py " quote
-RunCmd(cmd)
+Run https://www.frdic.com/dicts/fr/%clipboard%
 return
+
+; !r:: ; Copy and pop up in Tooltip
+; clipboard :=
+; Send, ^c
+; ClipWait, 2
+; quote := chr(34) clipboard chr(34)
+; ; MsgBox, %quote%
+; cmd := "python .\ShowTooltipExample.py " quote
+; RunCmd(cmd)
+; return
 
 !e:: ; Copy and send in email
 clipboard :=
@@ -242,7 +256,7 @@ return
 clipboard =
 Send, ^c
 ClipWait, 2    
-dl_cmd = yt-dlp %clipboard% -P C:\Users\collv\Documents\DownloadedVideos\ --write-subs --write-auto-subs --sub-langs "cn*,es*,en"
+dl_cmd = yt-dlp %clipboard% -P C:\Users\collv\Documents\DownloadedVideos\ --write-subs --write-auto-subs --sub-langs "cn*,es*,fr*,en" -k
 
 #NoEnv
 #Warn
