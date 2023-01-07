@@ -1,3 +1,4 @@
+; Based on https://www.autohotkey.com/board/topic/130423-keyboard-to-mouse-movement-for-android-emulated-games/
 #NoEnv
 #UseHook
 SetBatchLines -1
